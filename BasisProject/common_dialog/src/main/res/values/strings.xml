@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">common_dialog</string>
-    <string name="dialog_button_cancel">取消</string>
-    <string name="dialog_button_sure">确定</string>
-    <string name="dialog_button_next">继续</string>
-    <string name="dialog_title_default_text">温馨提示</string>
-</resources>

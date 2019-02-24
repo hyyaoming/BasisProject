@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- dialog默认进出场动画-->
-    <style name="DialogAnim" parent="android:Animation">
-        <item name="android:windowEnterAnimation">@anim/dialog_in</item>
-        <item name="android:windowExitAnimation">@anim/dialog_out</item>
-    </style>
-</resources>
