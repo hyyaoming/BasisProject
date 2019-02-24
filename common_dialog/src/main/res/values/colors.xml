@@ -6,4 +6,5 @@
     <color name="dialog_material_design_default_sure_color">#468ED0</color>
     <color name="dialog_material_design_default_next_color">#00796B</color>
     <color name="dialog_material_design_default_burton_click_color">#E3E3E3</color>
+    <color name="triangle_view_color">#BB000000</color>
 </resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 气泡弹窗三角形指示器-->
+    <declare-styleable name="TriangleView">
+        <!--三角形指示器朝向-->
+        <attr name="triangle_gravity" format="integer" />
+        <!--三角形指示器颜色-->
+        <attr name="triangle_color" format="color" />
+    </declare-styleable>
+</resources>
