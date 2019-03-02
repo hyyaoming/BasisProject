@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BadgeView">
+        <!-- 圆角矩形背景色 -->
+        <attr name="bv_bg_color" format="color" />
+        <!-- 圆角弧度,单位dp-->
+        <attr name="bv_corner_radius" format="dimension" />
+        <!-- 圆角弧度,单位dp-->
+        <attr name="bv_stroke_width" format="dimension" />
+        <!-- 圆角边框颜色-->
+        <attr name="bv_stroke_color" format="color" />
+        <!-- 圆角弧度是高度一半-->
+        <attr name="bv_isRadiusHalfHeight" format="boolean" />
+        <!-- 圆角矩形宽高相等,取较宽高中大值-->
+        <attr name="bv_isWidthHeightEqual" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="BottomBarLayout">
+        <!--未选中TextColor颜色-->
+        <attr name="bi_un_select_text_color" format="color" />
+        <!--选中图片颜色-->
+        <attr name="bi_select_text_color" format="color" />
+        <!--字体大小-->
+        <attr name="bi_text_size" format="dimension" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".bottom_bar.BottomBarActivity">
+
+    <FrameLayout
+        android:id="@+id/frame_content"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+    <basisproject.lym.org.bottom_bar.BottomBarLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:bi_select_text_color="#D33D3C"
+        app:bi_text_size="10sp"
+        app:bi_un_select_text_color="#515051"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</LinearLayout>
