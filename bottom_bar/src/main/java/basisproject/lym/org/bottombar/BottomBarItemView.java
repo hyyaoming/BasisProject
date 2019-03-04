@@ -1,4 +1,4 @@
-package basisproject.lym.org.bottom_bar;
+package basisproject.lym.org.bottombar;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,47 +12,51 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import basisproject.lym.org.bottom_bar.weight.BadgeView;
+import basisproject.lym.org.bottombar.weight.BadgeView;
 
 /**
- * BottomBarItemView
- * <p>
- * author: ym.li
- * since: 2019/3/2
+ * BottomLayout 子布局
+ *
+ * @author ym.li
+ * @version 2.15.0
+ * @since 2019年3月4日10:21:25
  */
 public class BottomBarItemView extends FrameLayout {
     /**
      * 小圆点提示
      */
-    private static final int ROUND_POINT_SIZE = 10;
-    private static final int ROUND_POINT_TOP_MARGIN = 3;
-    private static final int ROUND_POINT_LEFT_MARGIN = ROUND_POINT_SIZE;
+    private static final int ROUND_POINT_SIZE = 8;
     private static final float BADGE_TEXT_SIZE = 10f;
     /**
      * 数字提示
      */
     private static final int NUMBER_SIZE = 14;
     private static final int TEN_NUMBER = 10;
-    private static final int NUMBER_LEFT_MARGIN = 16;
     private static final int NUMBER_LEFT_RIGHT_PADDING = 6;
     private static final int MAX_BADGE = 100;
     private static final String MAX_BADGE_TEXT = "99+";
-    /*bottom icon*/
+    private static final int ROUND_POINT_LEFT_MARGIN = 10;
+    private static final int ROUND_POINT_GREATER_THAN_TEN_LEFT_MARGIN = 8;
+    /**
+     * bottom icon
+     */
     private int mUnSelectIcon;
     private int mSelectIcon;
     private ImageView mBottomIconIv;
     private Bitmap mUnSelectBitmap;
     private Bitmap mSelectBitmap;
-    /*bottom tv*/
+    /**
+     * bottom textView
+     */
     private TextView mBottomTv;
     private CharSequence mText;
     private float mTextSize;
-    /*常量相关*/
     private int mUnSelectTextColor;
     private int mSelectTextColor;
-    /*未读消息View*/
+    /**
+     * 未读消息View
+     */
     private BadgeView mBadgeView;
-
 
     /**
      * constructor
@@ -104,6 +108,8 @@ public class BottomBarItemView extends FrameLayout {
     }
 
     private void initView() {
+        setClipToPadding(false);
+        setClipChildren(false);
         inflate(getContext(), R.layout.bottom_item_layout, this);
         this.mBottomIconIv = findViewById(R.id.iv_bottom_icon);
         this.mBottomTv = findViewById(R.id.tv_bottom_content);
@@ -173,37 +179,54 @@ public class BottomBarItemView extends FrameLayout {
      * @param num num小于等于0显示红点,num大于0显示数字
      */
     public void showMsg(int num) {
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mBadgeView.getLayoutParams();
+        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) mBadgeView.getLayoutParams();
         mBadgeView.setVisibility(View.VISIBLE);
-        if (num <= 0) {//圆点,设置默认宽高
-            lp.width = dp2px(ROUND_POINT_SIZE);
-            lp.height = dp2px(ROUND_POINT_SIZE);
-            lp.topMargin = dp2px(ROUND_POINT_TOP_MARGIN);
-            lp.leftMargin = dp2px(ROUND_POINT_LEFT_MARGIN);
+        //圆点,设置默认宽高
+        if (num <= 0) {
+            lp.width = UITool.dip2px(getContext(), ROUND_POINT_SIZE);
+            lp.height = UITool.dip2px(getContext(), ROUND_POINT_SIZE);
             mBadgeView.setLayoutParams(lp);
         } else {
             mBadgeView.setTextSize(TypedValue.COMPLEX_UNIT_SP, BADGE_TEXT_SIZE);
-            lp.height = dp2px(NUMBER_SIZE);
-            if (num < TEN_NUMBER) {//圆
-                lp.width = dp2px(NUMBER_SIZE);
+            lp.height = UITool.dip2px(getContext(), NUMBER_SIZE);
+            //圆
+            if (num < TEN_NUMBER) {
+                lp.width = UITool.dip2px(getContext(), NUMBER_SIZE);
                 mBadgeView.setText(String.valueOf(num));
-            } else if (num < MAX_BADGE) {//圆角矩形,圆角是高度的一半,设置默认padding
+                lp.leftMargin = -UITool.dip2px(getContext(), ROUND_POINT_LEFT_MARGIN);
+            } else {
+                //圆角矩形,圆角是高度的一半,设置默认padding
                 lp.width = RelativeLayout.LayoutParams.WRAP_CONTENT;
-                mBadgeView.setPadding(dp2px(NUMBER_LEFT_RIGHT_PADDING), 0, dp2px(NUMBER_LEFT_RIGHT_PADDING), 0);
-                mBadgeView.setText(String.valueOf(num));
-            } else {//数字超过两位,显示99+
-                lp.width = RelativeLayout.LayoutParams.WRAP_CONTENT;
-                mBadgeView.setPadding(dp2px(NUMBER_LEFT_RIGHT_PADDING), 0, dp2px(NUMBER_LEFT_RIGHT_PADDING), 0);
-                mBadgeView.setText(MAX_BADGE_TEXT);
+                mBadgeView.setPadding(UITool.dip2px(getContext(), NUMBER_LEFT_RIGHT_PADDING), 0, UITool.dip2px(getContext(), NUMBER_LEFT_RIGHT_PADDING), 0);
+                mBadgeView.setText(num < MAX_BADGE ? String.valueOf(num) : MAX_BADGE_TEXT);
+                lp.leftMargin = -UITool.dip2px(getContext(), ROUND_POINT_GREATER_THAN_TEN_LEFT_MARGIN);
             }
-            lp.leftMargin = dp2px(NUMBER_LEFT_MARGIN);
             mBadgeView.setLayoutParams(lp);
         }
     }
 
-    private int dp2px(float dp) {
-        final float scale = getResources().getDisplayMetrics().density;
-        return (int) (dp * scale + 0.5f);
+    /**
+     * 设置badgeView左,上重叠的大小
+     *
+     * @param leftMargin 左边重叠的部分
+     * @param topMargin  上边重叠的部分
+     */
+    public void badgeMargin(int leftMargin, int topMargin) {
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mBadgeView.getLayoutParams();
+        if (null != params) {
+            params.leftMargin = -UITool.dip2px(getContext(), leftMargin);
+            params.topMargin = -UITool.dip2px(getContext(), topMargin);
+            mBadgeView.setLayoutParams(params);
+        }
+    }
+
+    /**
+     * 设置Badge背景颜色
+     *
+     * @param colorRes 颜色属性
+     */
+    public void setBadgeBackgroundColor(int colorRes) {
+        mBadgeView.setBackgroundColor(colorRes);
     }
 
     /**

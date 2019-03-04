@@ -2,7 +2,7 @@ package basisproject.lym.org.basisproject.bottom_bar;
 
 import android.graphics.Bitmap;
 
-import basisproject.lym.org.bottom_bar.listener.OnBottomBarEntity;
+import basisproject.lym.org.bottombar.listener.OnBottomBarEntity;
 
 /**
  * author: ym.li

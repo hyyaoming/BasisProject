@@ -13,10 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
 
-    <basisproject.lym.org.bottom_bar.BottomBarLayout
+    <basisproject.lym.org.bottombar.BottomBarLayout
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"
         android:layout_gravity="center"
         android:background="#ffffff"
         android:gravity="center"

@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/ll_tap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/iv_bottom_icon"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_height="wrap_content"/>
 
-        <basisproject.lym.org.bottom_bar.weight.BadgeView
-            android:id="@+id/badgeView"
+        <TextView
+            android:id="@+id/tv_bottom_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            app:bv_bg_color="#FD481F"
-            app:bv_isRadiusHalfHeight="true"
-            app:bv_stroke_color="#ffffff" />
-    </FrameLayout>
+            android:singleLine="true"/>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_bottom_content"
+    <basisproject.lym.org.bottombar.weight.BadgeView
+        android:id="@+id/badgeView"
+        xmlns:mv="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="哈哈" />
+        android:layout_toRightOf="@+id/ll_tap"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:visibility="gone"
+        mv:bv_bg_color="#EE0000"
+        mv:bv_isRadiusHalfHeight="true"
+        mv:bv_stroke_color="#ffffff"
+        mv:bv_stroke_width="1dp"/>
 
-</LinearLayout>
+</RelativeLayout>

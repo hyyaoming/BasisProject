@@ -1,4 +1,4 @@
-package basisproject.lym.org.bottom_bar;
+package basisproject.lym.org.bottombar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,14 +11,15 @@ import android.widget.LinearLayout;
 
 import java.util.List;
 
-import basisproject.lym.org.bottom_bar.listener.OnBottomBarEntity;
-import basisproject.lym.org.bottom_bar.listener.OnBottomBarSelectListener;
+import basisproject.lym.org.bottombar.listener.OnBottomBarEntity;
+import basisproject.lym.org.bottombar.listener.OnBottomBarSelectListener;
 
 /**
- * 底部导航布局
- * <p>
- * author: ym.li
- * since: 2019/3/2
+ * 底部bottomLayout
+ *
+ * @author ym.li
+ * @version 2.15.0
+ * @since 2019年3月4日10:21:25
  */
 public class BottomBarLayout extends LinearLayout {
     private static final int DEFAULT_SIZE = 10;
@@ -69,21 +70,16 @@ public class BottomBarLayout extends LinearLayout {
         this.mSelectListener = selectListener;
     }
 
-    private int sp2px() {
-        final float fontScale = getResources().getDisplayMetrics().scaledDensity;
-        return (int) ((float) DEFAULT_SIZE * fontScale + 0.5f);
-    }
-
     private void initAttr(AttributeSet attrs) {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.BottomBarLayout);
-        this.mTextSize = typedArray.getDimensionPixelSize(R.styleable.BottomBarLayout_bi_text_size, sp2px());
+        this.mTextSize = typedArray.getDimensionPixelSize(R.styleable.BottomBarLayout_bi_text_size, UITool.sp2px(getContext(), DEFAULT_SIZE));
         this.mUnSelectTextColor = typedArray.getColor(R.styleable.BottomBarLayout_bi_un_select_text_color, Color.parseColor("#cccccc"));
         this.mSelectTextColor = typedArray.getColor(R.styleable.BottomBarLayout_bi_select_text_color, Color.parseColor("#D33D3C"));
         typedArray.recycle();
     }
 
     private void addBottomBarItem(BottomBarItemView itemView) {
-        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         params.weight = 1;
         itemView.setLayoutParams(params);
         addView(itemView);
@@ -123,13 +119,13 @@ public class BottomBarLayout extends LinearLayout {
     private void refresh(List<OnBottomBarEntity> entices) {
         for (OnBottomBarEntity entity : entices) {
             BottomBarItemView barItemView = new BottomBarItemView.Builder(getContext())
-                    .setSelectRes(entity.getSelectIcon())
-                    .setUnSelectRes(entity.getUnSelectIcon())
-                    .setText(entity.getText())
-                    .setTextSize(mTextSize)
-                    .setUnSelectTextColor(mUnSelectTextColor)
-                    .setSelectTextColor(mSelectTextColor)
-                    .build();
+                .setSelectRes(entity.getSelectIcon())
+                .setUnSelectRes(entity.getUnSelectIcon())
+                .setText(entity.getText())
+                .setTextSize(mTextSize)
+                .setUnSelectTextColor(mUnSelectTextColor)
+                .setSelectTextColor(mSelectTextColor)
+                .build();
             addBottomBarItem(barItemView);
         }
         setDefaultChecked(0);
@@ -196,6 +192,19 @@ public class BottomBarLayout extends LinearLayout {
     }
 
     /**
+     * 获取Bottom Item View
+     *
+     * @param position 角标
+     * @return 返回Bottom Item
+     */
+    public BottomBarItemView getItemView(int position) {
+        if (position >= 0 && position < mItems.size()) {
+            return mItems.get(position);
+        }
+        return null;
+    }
+
+    /**
      * 隐藏未读消息数量
      *
      * @param position 下标
@@ -205,7 +214,6 @@ public class BottomBarLayout extends LinearLayout {
     }
 
     private class ItemViewOnclickListener implements OnClickListener {
-
         private int mCurrentIndex;
 
         /**

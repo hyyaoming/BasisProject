@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import basisproject.lym.org.basisproject.R;
-import basisproject.lym.org.bottom_bar.BottomBarLayout;
-import basisproject.lym.org.bottom_bar.listener.OnBottomBarEntity;
-import basisproject.lym.org.bottom_bar.listener.OnBottomBarSelectListener;
+import basisproject.lym.org.bottombar.BottomBarLayout;
+import basisproject.lym.org.bottombar.listener.OnBottomBarEntity;
+import basisproject.lym.org.bottombar.listener.OnBottomBarSelectListener;
 
 public class BottomBarActivity extends AppCompatActivity {
     private static final String[] TEXT = {"头条", "新闻", "好玩", "好看"};
