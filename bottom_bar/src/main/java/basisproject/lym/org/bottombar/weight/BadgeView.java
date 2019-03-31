@@ -1,4 +1,4 @@
-package basisproject.lym.org.bottom_bar.weight;
+package basisproject.lym.org.bottombar.weight;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,7 +9,7 @@ import android.os.Build;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
-import basisproject.lym.org.bottom_bar.R;
+import basisproject.lym.org.bottombar.R;
 
 /**
  * 未读消息数量,或小红点提示

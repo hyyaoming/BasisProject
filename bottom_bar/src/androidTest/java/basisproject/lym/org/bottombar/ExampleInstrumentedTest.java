@@ -1,4 +1,4 @@
-package basisproject.lym.org.bottom_bar;
+package basisproject.lym.org.bottombar;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
