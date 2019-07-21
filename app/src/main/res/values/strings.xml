@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">BasisProject</string>
+    <string name="search_name">请输入商品名称</string>
+    <string name="select_type">选择频道</string>
+    <string name="bottombar">bottomBar</string>
+    <string-array name="type_array">
+        <item>推荐</item>
+        <item>百货</item>
+        <item>服饰</item>
+        <item>鞋包</item>
+        <item>内衣</item>
+        <item>食品</item>
+        <item>美妆</item>
+        <item>母婴</item>
+        <item>电器</item>
+        <item>手机</item>
+        <item>汽车</item>
+        <item>家纺</item>
+        <item>运动</item>
+        <item>家装</item>
+        <item>电脑</item>
+    </string-array>
 </resources>

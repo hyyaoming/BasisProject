@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_centerVertical="true"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_home_search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_weight="1"
+        android:background="@drawable/goods_shape_home_search_bg"
+        android:drawableStart="@mipmap/goods_search_small"
+        android:drawableLeft="@mipmap/goods_search_small"
+        android:drawablePadding="6dp"
+        android:minHeight="32dp"
+        android:paddingStart="11dp"
+        android:paddingLeft="11dp"
+        android:paddingTop="9dp"
+        android:paddingRight="11dp"
+        android:paddingBottom="9dp"
+        android:text="@string/search_name"
+        android:textColor="#b3b3b3"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/iv_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:src="@mipmap/goods_icon_up" />
+
+</LinearLayout>
+
+

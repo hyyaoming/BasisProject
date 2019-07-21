@@ -1,1 +1,1 @@
-include ':app', ':common_dialog', ':bottom_bar', ':recyclerview_divider'
+include ':app', ':common_dialog', ':bottom_bar', ':recyclerview_divider', ':library'
