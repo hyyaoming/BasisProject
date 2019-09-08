@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "basisproject.lym.org.basisproject"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -30,4 +30,5 @@ dependencies {
     compile project(path: ':bottom_bar')
     compile project(path: ':recyclerview_divider')
     compile project(path: ':library')
+    compile project(path: ':dragimageview')
 }

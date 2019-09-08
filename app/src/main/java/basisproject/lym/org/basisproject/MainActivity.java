@@ -15,15 +15,18 @@ import android.widget.TextView;
 import basisproject.lym.org.basisproject.bottom_bar.BottomBarActivity;
 import basisproject.lym.org.basisproject.dialog.DialogActivity;
 import basisproject.lym.org.basisproject.divider.RecyclerViewDividerActivity;
+import basisproject.lym.org.basisproject.dragimageview.DragImageViewActivity;
 import basisproject.lym.org.basisproject.dropdown.DropDownActivity;
+import jetpack.lym.org.dragimageview.ImagesViewerActivity;
 
 /**
  * @author ym.li
  * @since 2019年2月24日18:16:10
  */
 public class MainActivity extends AppCompatActivity {
-    private static final Class[] CLASS = {BottomBarActivity.class, DialogActivity.class, RecyclerViewDividerActivity.class, DropDownActivity.class};
-    private static final String[] CLASS_NAME = {"BottomBarActivity", "DialogActivity", "RecyclerViewDividerActivity", "DropDownActivity"};
+    private static final Class[] CLASS = {BottomBarActivity.class, DialogActivity.class, RecyclerViewDividerActivity.class, DropDownActivity.class,
+            DragImageViewActivity.class};
+    private static final String[] CLASS_NAME = {"BottomBarActivity", "DialogActivity", "RecyclerViewDividerActivity", "DropDownActivity", "DragImageViewActivity"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

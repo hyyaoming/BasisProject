@@ -21,7 +21,10 @@
         <activity android:name=".bottom_bar.BottomBarActivity" />
         <activity android:name=".divider.RecyclerViewDividerActivity" />
         <activity android:name=".dialog.DialogActivity" />
-        <activity android:name=".dropdown.DropDownActivity"/>
+        <activity android:name=".dropdown.DropDownActivity" />
+        <activity android:name=".dragimageview.DragImageViewActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
